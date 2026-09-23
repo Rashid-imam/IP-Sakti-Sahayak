@@ -1,0 +1,920 @@
+[
+  {
+    "text": "Term: Abdominal lump. Ayurveda name: gulma. Siddha name: Vayitru Kazhalaigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 1",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Alopecia. Ayurveda name: khlitya. Unani name: Daa-al-Salab. Siddha name: Puzhuvettu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 2",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Ama. Ayurveda name: ma. Siddha name: Seetham,Aamam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 3",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Ankyloblepharon. Ayurveda name: Pilla. Siddha name: Soolnluidu Pillam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 4",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Ano-rectal diseases. Ayurveda name: Gudaroga. Unani name: Amraaz-e-tanasuliyah. Siddha name: Asana Kudal Nolcial.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 5",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Anorexia. Ayurveda name: arocaka. Unani name: Nuqsaan -ul- Shahvath / Zof-e-Ishteha. Siddha name: Rusi inmai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 6",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Baldness. Ayurveda name: indralupta. Unani name: Sala. Siddha name: Vazhukkai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 7",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Blood dysentery. Ayurveda name: rakttisra. Siddha name: Rattha Kazhichal ,Kuruthi kazhichal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 8",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Bodyache. Ayurveda name: vtajala. Unani name: Dard-e-Badan. Siddha name: Udal Vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 9",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Boil. Ayurveda name: pik. Unani name: Phunsi. Siddha name: Koppula Perunoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 10",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: boils. Ayurveda name: rakasa. Siddha name: Koppula Perunoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 11",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Bronchial asthma. Ayurveda name: tamaka vsa. Unani name: Zeeq-al-Nafas Shubi/Zeeq-al-Nafas/ Rabw. Siddha name: Eraippu Erunal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 12",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Cachexia. Ayurveda name: oa. Unani name: Huzaal. Siddha name: Udal Ilaippu Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 13",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Calculus. Ayurveda name: Mutrasmari. Siddha name: Kalladaippu,Achamari.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 14",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: cardiac failure. Ayurveda name: hda graha. Siddha name: Iyya Thamaraganoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 15",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Cataract. Ayurveda name: timira. Siddha name: Thimiram, Pithakkaasam, Kan poo.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 16",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Cellulitis. Ayurveda name: gaaroga. Siddha name: Kadhuppu Veekkam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 17",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Chill and rigors. Ayurveda name: vepathu. Unani name: Larzah-wa-Qasha'reerah. Siddha name: Kulir/Nalir.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 18",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Chronic & severe condition of any disease. Ayurveda name: sannipta. Siddha name: Mukkutra Noigal/Theevira Noikal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 19",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Complication. Ayurveda name: upadrava. Siddha name: Shikkalaana.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 20",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Cramps. Ayurveda name: khall. Siddha name: Moottu isivu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 21",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Curable. Ayurveda name: sdhya. Siddha name: Theerum Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 22",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Curable disease of severe nature. Ayurveda name: kcchrasdhya. Siddha name: Arithil Theerum noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 23",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Cystitis / Urethritis. Ayurveda name: uavta. Unani name: Waram-e-Masaanah/Waram-e-Majra-e-Baul. Siddha name: Neer pai/Moothira naala thaabitham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 24",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Dandruff. Ayurveda name: druaka. Unani name: ibriyah/Abriyyah/bafa. Siddha name: Podugu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 25",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Delirium. Ayurveda name: pralpa. Siddha name: Pithatral.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 26",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diabetic furuncle. Ayurveda name: prameha piik. Siddha name: Meisa Koppulam/Raaja pilavai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 27",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diarrhea with fever. Ayurveda name: jvartisra. Siddha name: Adhisaara suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 28",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Discharge. Ayurveda name: srva. Unani name: Tarashshuh. Siddha name: Kasivu/Ozhugal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 29",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Discharge from wound. Ayurveda name: Vrana srava. Siddha name: Pun Kasivu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 30",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Disease. Ayurveda name: roga/ vydhi. Siddha name: Noi,Viyaadhi,Pini.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 31",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Disease with Kapha predominance. Ayurveda name: kaphavikra. Siddha name: Iyya Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 32",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Disease with Pitta predominance. Ayurveda name: pittavikra. Siddha name: AzhalNoigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 33",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Disease with Vata predominance. Ayurveda name: vtavikra. Siddha name: Vali Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 34",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases due to vitiated Rakta. Ayurveda name: raktavikra. Siddha name: Ratha thaathu saarntha noikal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 35",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of abdomen. Ayurveda name: udararoga. Unani name: Amraaz-e-batn. Siddha name: Vayitru noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 36",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of head. Ayurveda name: iroroga. Siddha name: Thalai/Mandai Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 37",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of head and neck. Ayurveda name: urdhvajatrugataroga. Unani name: Amraaz-e-raas wa unuq. Siddha name: Kazhutthu/Thalai Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 38",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of heart. Ayurveda name: hdayaroga. Unani name: Amraaz-e-qalb. Siddha name: Eruthaya Noigal,Thamaraga noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 39",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of nervous system. Ayurveda name: vtavydhi. Unani name: Amraaz-e-Nizam-e-Aa'saab. Siddha name: Narambu Mandala Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 40",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of pelvic region. Ayurveda name: kukiroga. Siddha name: Koobaga Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 41",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of spleen. Ayurveda name: plhvikra. Unani name: Amraaz-e-tehaal. Siddha name: Peeliga Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 42",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of the eye. Ayurveda name: netra roga. Unani name: Amraaz-e-A'in. Siddha name: Kan Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 43",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of the mouth. Ayurveda name: mukharoga. Siddha name: Vaai Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 44",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Diseases of the urinary system. Ayurveda name: mtraroga. Unani name: Amraaz-e-Nizaam-e-Bauliyah. Siddha name: Siriuneeraga  Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 45",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Dryness of mouth. Ayurveda name: mukhaoa. Siddha name: Vaai Varatchi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 46",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Duodenal ulcer. Ayurveda name: parimala. Siddha name: Vayitru Soolai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 47",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Dysentery. Ayurveda name: pravhik. Unani name: Zaheer. Siddha name: Nina kazhichal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 48",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Dyspepsia. Ayurveda name: agnimndya. Unani name: Su-e-Hazm/Badhazmi/Nuqsan e shahwat. Siddha name: Pasi inmai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 49",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Dysuria. Ayurveda name: mtrakcchra. Unani name: Usr-e- Baul. Siddha name: Neer erichal,Neer kaduppu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 50",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Earache. Ayurveda name: karala. Siddha name: Sevi vaayu Soolai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 51",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Elephantiasis. Ayurveda name: lpada. Unani name: Daa-ul-Feel. Siddha name: Yanaikkaal,Sili padham,Paadha vanmeegam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 52",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Emaciating disease. Ayurveda name: kaya. Siddha name: Ilaippu noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 53",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Emaciation. Ayurveda name: kat. Siddha name: Patchi Thodam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 54",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Endogenous. Ayurveda name: nija. Siddha name: Ullaarntha.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 55",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Enlargement of abdomen. Ayurveda name: vtodara. Siddha name: Vali Peruvayiru.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 56",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Enlargement of spleen. Ayurveda name: plhodara. Siddha name: Peeliga Veekkam, Edappaatteeral veekkam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 57",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Epiphora. Ayurveda name: netra srva. Unani name: Damah. Siddha name: NeerPaaychal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 58",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Excessive moistening of female genital tract. Ayurveda name: yonikleda. Siddha name: Yoni Kasivu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 59",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Excessive perspiration. Ayurveda name: atisveda. Siddha name: Adhi Viyarvai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 60",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Exogenous. Ayurveda name: gantuja. Siddha name: Pura Kaaranigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 61",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: External parasite. Ayurveda name: Bahya krmi. Siddha name: Veli pura kirumigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 62",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Facial Paralysis. Ayurveda name: ardita. Siddha name: Muga Vaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 63",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Fever caused by all three dosa with equal severity. Ayurveda name: sanniptikajvara. Siddha name: Mukkutra Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 64",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Fever due to libido. Ayurveda name: kmajvara. Siddha name: Kaama Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 65",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Fever due to predominance of Vata-pittadosa. Ayurveda name: vtapaittikajvara. Siddha name: Vali Azhal Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 66",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Fever due to prodominance of Pitta-kaphadosa. Ayurveda name: pittakaphajajvara. Siddha name: Azal iyyya Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 67",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Fever with Pitta predominance. Ayurveda name: paittikajvara. Siddha name: Pitha suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 68",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Foul smell from female genital tract. Ayurveda name: yonidaurgandhya. Siddha name: Yoni naatram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 69",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Freckle. Ayurveda name: vyaga. Unani name: Kalaf. Siddha name: Karun Themal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 70",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Frozen shoulder. Ayurveda name: avabhuka. Siddha name: Tholpattai Vaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 71",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: General weakness. Ayurveda name: dhtukaya. Siddha name: Palakeenam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 72",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Goitre. Ayurveda name: galagaa. Unani name: Ghootar. Siddha name: Veethana kolaveekkam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 73",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Gonorrhoea. Ayurveda name: upadaa. Unani name: Suzaak. Siddha name: Seezh Megam,Vellai noi,Mega noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 74",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Haemorrhagic diseases. Ayurveda name: raktapitta. Unani name: Rakt Pit. Siddha name: Kuruthi Azhal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 75",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Hoarseness. Ayurveda name: svarabheda. Unani name: Buhat-us-Saut. Siddha name: Kural Kammal,Sura pangam,Thondai kattu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 76",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Hyperacidity. Ayurveda name: amlapitta. Unani name: Humoozat-e-Medah. Siddha name: Eri gunmam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 77",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Hypertrophy of cardiac muscle. Ayurveda name: agramsa. Siddha name: Thamaraga Thasaiperukka Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 78",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Iatrogenic. Ayurveda name: viruddhabhaiaja. Siddha name: Maruthuvanaal Vantha noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 79",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Incurable. Ayurveda name: asdhya. Siddha name: Theeraa Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 80",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Infection due to contaminated water. Ayurveda name: jaladoajavikra. Siddha name: Nanju neer Kirumi noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 81",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Infertility. Ayurveda name: vandhyatva. Siddha name: Maladu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 82",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Inflammation and enlargement of scrotum. Ayurveda name: vaa vddhi. Siddha name: Sadhai Vidhai Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 83",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Inguinal hernia. Ayurveda name: Braghna. Unani name: Fatq-e-Urbi. Siddha name: Kudal Andam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 84",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Injury of eyes. Ayurveda name: netra abhighta/netrakata. Siddha name: Kan kaayam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 85",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Insomnia. Ayurveda name: anidr. Unani name: Sahar. Siddha name: Thookkaminmai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 86",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Internal abscess. Ayurveda name: atarvidradhi. Siddha name: Ulkattikal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 87",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Kaphaja. Ayurveda name: kaphaja. Siddha name: Iyyam,Kabam,Siletthumam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 88",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Languor. Ayurveda name: klama. Siddha name: Ekkam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 89",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Lateral sinus thrombosis. Ayurveda name: akhaka iroroga. Siddha name: Pakka Mandai vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 90",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Lathyrism. Ayurveda name: kalyakhaja. Siddha name: Kumbavaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 91",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Leucorrhoea. Ayurveda name: vetapradara. Unani name: Sailaane-Rehm. Siddha name: Vellai noi,Vettai noi,Megam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 92",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Liver disease. Ayurveda name: yaktavikra. Unani name: Amraaz-e-Jigar. Siddha name: Eeeral Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 93",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Lockjaw. Ayurveda name: hanustambha. Siddha name: Thaal Pootu Vaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 94",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Loose teeth. Ayurveda name: dantacala. Unani name: Taharruk-e-Asnaan. Siddha name: Pallaattam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 95",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Lumbago. Ayurveda name: phala. Siddha name: Iduppuvali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 96",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Malaria. Ayurveda name: viamajvara. Unani name: Humma-e- Ajaamiya. Siddha name: Vida/Nanju Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 97",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Menorrhagia / Metrorrhagia. Ayurveda name: rakta pradara / asgdara. Unani name: Kasrat-e-tams/ Istehaaza. Siddha name: Kuruthi ozhukku noikal,Perumpaadu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 98",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Migraine. Ayurveda name: ardhvabhedaka. Siddha name: Pakka Mandai Soolai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 99",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: naevi. Ayurveda name: nyaccha. Siddha name: Sem Macham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 100",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Nausea. Ayurveda name: hllsa. Unani name: Ghasayaan. Siddha name: Ookkaalam,Vaikumattal,.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 101",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Non- lepromatous leprosy. Ayurveda name: maalakuha. Siddha name: Valaya Perunoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 102",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Obesity. Ayurveda name: medovddhi. Unani name: Seman-e-Mufrit. Siddha name: Udal Paruman,Athi thoola noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 103",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Obstructive enteropathies. Ayurveda name: udvarta. Siddha name: Kudal thadai Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 104",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Osteoarthiritis. Ayurveda name: sandhigatavta. Siddha name: Santhu Enbu vaatham,Azhal keel vaayu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 105",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Otitis externa. Ayurveda name: karapka. Unani name: Iltehaab-e-Uzn. Siddha name: Sevi Neer Soolai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 106",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Otorrhoea. Ayurveda name: Karnasrava / karnasamsrava. Unani name: Sailaan -ul- Uzn. Siddha name: Sevi Seezh.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 107",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pain. Ayurveda name: rj/vedan. Unani name: Waja. Siddha name: Vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 108",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pain in eyes. Ayurveda name: Netraruja.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 109",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pain in urinary bladder. Ayurveda name: vastila. Siddha name: Siruneer pai vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 110",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Paraesthesia. Ayurveda name: prasupti. Siddha name: Unarchi Kuraivu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 111",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Paraplegia. Ayurveda name: pagu. Unani name: Faalij Tahtaani/Falij-e -Asfal. Siddha name: Patchavaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 112",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pitta-kaphaja. Ayurveda name: pittakaphaja. Siddha name: Azhal iyya Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 113",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pittaja. Ayurveda name: pittaja. Siddha name: Azhal,Pittham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 114",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Plenosthotonus. Ayurveda name: dapatnaka. Siddha name: Naakku Vaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 115",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pleurodynia. Ayurveda name: prvala. Unani name: Shosah. Siddha name: Pakkasoolai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 116",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Prolapse of female genital tract. Ayurveda name: yoni bhraa / yoni aithilya. Siddha name: Yoni Pithukkam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 117",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Psoriasis. Ayurveda name: kiibha. Unani name: Sudaaf / Sadfiyyah / Taqashshur-e-Jild. Siddha name: Kalanjaga Padai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 118",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Psychoneurosis. Ayurveda name: mada. Unani name: Maalikholiya Miraaqi. Siddha name: Serukku.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 119",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Puerperal diseases. Ayurveda name: stikroga. Unani name: Amraaz-e-nifaas/parsoot. Siddha name: Pirasa Kala Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 120",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Pulmonary cavitation. Ayurveda name: ura kata. Siddha name: Moluruppu Ilaippu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 121",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: pyrexia. Ayurveda name: jrajvara. Siddha name: Naalpatta Suram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 122",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Rhagades. Ayurveda name: vipdik. Siddha name: Sen Kuttam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 123",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Ring worm. Ayurveda name: dadru. Unani name: Qoobaa. Siddha name: Thaddippu perunoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 124",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Sacral pain. Ayurveda name: trikla. Siddha name: Koopaga/Keel vayiru vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 125",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Sannipataja / Tridosaja. Ayurveda name: sanniptaja / tridoaja. Siddha name: Mukkutra Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 126",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Sciatica. Ayurveda name: gdhras. Unani name: Irqun Nasaa. Siddha name: Peraasana Narambu thaabitham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 127",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Seborrhoea,Pityriasis capitis / Furunculosis or boils in scalp. Ayurveda name: Arumsika. Siddha name: Koppula Peru Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 128",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Seminal disorders. Ayurveda name: ukra roga. Siddha name: Vindhu Noigal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 129",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Sinus. Ayurveda name: n. Siddha name: Pavuthiram.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 130",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Smallpox. Ayurveda name: masrik. Unani name: Judaree. Siddha name: Periyammai Noi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 131",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Spider bite. Ayurveda name: lt via. Unani name: Lasat-ul- Ankaboot. Siddha name: Silanthikkadi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 132",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Sprue / Malabsorption Syndrome. Ayurveda name: graha. Unani name: Zarab-wa-khilfah. Siddha name: Naal Patta Kazhichal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 133",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Stiffness. Ayurveda name: jya/ graha. Siddha name: Viraippu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 134",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Stiffness of Joints. Ayurveda name: sandhigraha. Siddha name: Moottu Pidippu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 135",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Stiffness, loss of movement of leg. Ayurveda name: urustambha. Siddha name: Kaal Mootu Pidippu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 136",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Suppuration. Ayurveda name: pka. Siddha name: Seezh Korthal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 137",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Syncope. Ayurveda name: mrcch. Siddha name: Mayakka noi,Sanniyaasam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 138",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Tastelessness. Ayurveda name: mukhavairasya. Siddha name: Suvai Inmai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 139",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Toothache. Ayurveda name: dantala. Unani name: Waja-ul- Asnaan. Siddha name: Pal Vali.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 140",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Torticollis. Ayurveda name: Manyastambha. Siddha name: Urakatha vaatham.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 141",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Toxication due to contamination of food with bodily waste. Ayurveda name: garavia. Siddha name: Oosipona unavu Nanju.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 142",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Tubercular cough. Ayurveda name: kayaja ksa. Siddha name: Elaippu erumal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 143",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Ulcer. Ayurveda name: vraa. Siddha name: Pun.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 144",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Unconsciousness. Ayurveda name: acaitanya / acetana. Unani name: Faqd-ul-Waii. Siddha name: Moorchai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 145",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Uterine tumour. Ayurveda name: rakta gulma. Siddha name: Karuppai Katti.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 146",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Vata-kaphaja. Ayurveda name: vtakaphaja. Siddha name: Vali Iyyam.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 147",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Vata-pittaja. Ayurveda name: vtapittaja. Siddha name: Vali-Azhal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 148",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Vataja. Ayurveda name: Vataja. Siddha name: Vali,Vaatham,Vaayu.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 149",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Vitiligo. Ayurveda name: vitra. Unani name: Baras. Siddha name: Ven Padai.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 150",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Vomiting. Ayurveda name: chardi. Unani name: Qai. Siddha name: Vaanthi ,Sarthi,Vamanam,Vaayaalaedutthal.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 151",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Xerodermia pigmentosa. Ayurveda name: carmakuha. Siddha name: Thol perunoi.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 152",
+    "jurisdiction": "India"
+  },
+  {
+    "text": "Term: Xerophthalmia. Ayurveda name: ukkipka. Siddha name: Padarthi Neer.",
+    "act_name": "TKDL — All Diseases",
+    "section": "Row 153",
+    "jurisdiction": "India"
+  }
+]

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@keyframes chatFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -80%;
+  }
+
+  45%, 100% {
+    left: 130%;
+  }
+}
