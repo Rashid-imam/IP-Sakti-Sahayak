@@ -34,7 +34,7 @@ function Shell() {
 
   return (
     <div className={largeText ? 'text-large min-h-screen bg-paper text-ink' : 'min-h-screen bg-paper text-ink'}>
-      {/* <TopBar onTextSize={() => setLargeText((value) => !value)} /> */}
+      <TopBar onTextSize={() => setLargeText((value) => !value)} />
       <Navbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <main id="main-content">
         <Routes>

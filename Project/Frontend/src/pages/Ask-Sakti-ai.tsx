@@ -24,6 +24,7 @@ import {
   Mic,
   Download,
   BookOpen,
+  Globe2,
 } from 'lucide-react';
 
 type Chat = {
@@ -71,6 +72,7 @@ export default function AskSaktiAI() {
   
   // NEW: Jurisdiction State
   const [jurisdiction, setJurisdiction] = useState('India');
+  const [jurisdictionOpen, setJurisdictionOpen] = useState(false);
   
   // NEW: Hook to read query parameters from URL
   const [searchParams, setSearchParams] = useSearchParams();
@@ -623,16 +625,45 @@ export default function AskSaktiAI() {
                     </div>
 
                     {/* Jurisdiction Dropdown */}
-                    <div className="flex items-center gap-2 border-l border-[#dce8df] pl-3 ml-1">
-                      <span className="text-[0.65rem] font-semibold text-[#8b9891] uppercase tracking-wider hidden sm:block">Jurisdiction:</span>
-                      <select
-                        value={jurisdiction}
-                        onChange={(e) => setJurisdiction(e.target.value)}
-                        className="cursor-pointer rounded-md bg-[#f2f7f4] border border-[#dce8df] px-2 py-1 text-[0.7rem] font-semibold text-[#245C3A] outline-none transition hover:bg-[#e8f1ec]"
+                    <div className="relative border-l border-[#dce8df] pl-3 ml-1">
+                      <button
+                        type="button"
+                        onClick={() => setJurisdictionOpen((prev) => !prev)}
+                        className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[#245C3A] px-3 text-[0.68rem] font-semibold text-white shadow-sm transition hover:bg-[#1d4d30]"
                       >
-                        <option value="India">🇮🇳 India</option>
-                        <option value="International">🌐 International</option>
-                      </select>
+                        <Globe2 size={14} />
+                        <span>{jurisdiction}</span>
+                        <ChevronRight
+                          size={13}
+                          className={`transition-transform duration-200 ${jurisdictionOpen ? 'rotate-90' : ''}`}
+                        />
+                      </button>
+
+                      {jurisdictionOpen && (
+                        <div className="absolute bottom-[calc(100%+8px)] left-3 z-50 w-[150px] overflow-hidden rounded-xl border border-[#dce8df] bg-white p-1.5 shadow-[0_12px_30px_rgba(36,92,58,0.16)]">
+                          {['India', 'International'].map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() => {
+                                setJurisdiction(option);
+                                setJurisdictionOpen(false);
+                              }}
+                              className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-[0.72rem] font-semibold transition ${
+                                jurisdiction === option
+                                  ? 'bg-[#EAF4ED] text-[#245C3A]'
+                                  : 'text-[#607282] hover:bg-[#F5F8F6]'
+                              }`}
+                            >
+                              <span className="text-sm">{option === 'India' ? '🇮🇳' : '🌐'}</span>
+                              {option}
+                              {jurisdiction === option && (
+                                <span className="ml-auto text-[#D8892F]">✓</span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
