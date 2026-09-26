@@ -8,12 +8,36 @@ export const herbImage = 'https://images.pexels.com/photos/7615621/pexels-photo-
 
 export type Icon = typeof Search;
 
-export type Source = { type: string; title: string; ref: string; year: string; icon: Icon };
+export type Source = {
+  type: string;
+  title: string;
+  ref: string;
+  year: string;
+  icon: Icon;
+};
 
 export const sources: Source[] = [
-  { type: 'Traditional Knowledge', title: 'Ashwagandha: documented uses in Ayurveda', ref: 'TKDL reference · Rasayana formulations', year: '2024', icon: Leaf },
-  { type: 'Patent document', title: 'Herbal compositions containing Withania somnifera', ref: 'Indian Patent Office · A61K36/00', year: '2022', icon: FileText },
-  { type: 'Regulation', title: 'Biological Diversity Act & ABS Guidelines', ref: 'National Biodiversity Authority', year: '2023', icon: Scale },
+  {
+    type: 'Traditional Knowledge',
+    title: 'Ashwagandha: documented uses in Ayurveda',
+    ref: 'TKDL reference · Rasayana formulations',
+    year: '2024',
+    icon: Leaf,
+  },
+  {
+    type: 'Patent document',
+    title: 'Herbal compositions containing Withania somnifera',
+    ref: 'Indian Patent Office · A61K36/00',
+    year: '2022',
+    icon: FileText,
+  },
+  {
+    type: 'Regulation',
+    title: 'Biological Diversity Act & ABS Guidelines',
+    ref: 'National Biodiversity Authority',
+    year: '2023',
+    icon: Scale,
+  },
 ];
 
 export const quickActions = [
@@ -44,6 +68,7 @@ export const features = [
     iconBg: '#D8892F',
     path: '/ask-sakti-ai',
     featured: true,
+    reverseGallery: true,
   },
 
   {
