@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 
 from database.db_setup import get_db
 from database.models import ChatSession, ChatMessage
@@ -38,8 +38,12 @@ class ChatResponse(BaseModel):
     source_metadata: Optional[SourceMetadata] = None
     citations: List[SourceMetadata] = []
     requires_paid_access: bool = False
-    # NEW: include file_name for report generation
     can_generate_report: bool = True
+    # 🚀 YEH NAYE FIELDS ADD KIYE HAIN
+    readiness_score: Optional[float] = None
+    readiness_level: Optional[str] = None
+    readiness_color: Optional[str] = None
+    readiness_breakdown: Optional[Dict[str, Any]] = None
 
 # NEW: Model for getting session metadata
 class SessionInfoResponse(BaseModel):
@@ -112,7 +116,6 @@ def handle_chat_message(request: ChatRequest, db: Session = Depends(get_db)):
         db.commit()
 
         # 6. Return response to frontend
-        # NEW: Always include can_generate_report = True (user can now call /api/generate-report endpoint)
         return {
             "status": ai_result.get("status", "SUCCESS"),
             "session_id": active_session_id,
@@ -124,7 +127,12 @@ def handle_chat_message(request: ChatRequest, db: Session = Depends(get_db)):
             "source_metadata": ai_result.get("source_metadata"),
             "citations": ai_result.get("citations", []),
             "requires_paid_access": ai_result.get("requires_paid_access", False),
-            "can_generate_report": True  # NEW field
+            "can_generate_report": True,
+            # 🚀 YEH LINES ADD KI HAIN TAAKI JSON FRONTEND TAK JAYE
+            "readiness_score": ai_result.get("readiness_score"),
+            "readiness_level": ai_result.get("readiness_level"),
+            "readiness_color": ai_result.get("readiness_color"),
+            "readiness_breakdown": ai_result.get("readiness_breakdown")
         }
 
     except Exception as e:
