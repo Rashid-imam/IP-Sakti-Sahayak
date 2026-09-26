@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useSearchParams } from 'react-router-dom'; // NEW: URL params padhne ke liye
+import ReadinessScoreCard from './ReadinessScoreCard'; // ✅ NEW: Import ReadinessScoreCard
 import {
   Archive,
   ChevronLeft,
@@ -41,12 +42,23 @@ type SourceMetadata = {
   section?: string;
 };
 
+// ✅ UPDATED: Added readiness score fields
 type Message = {
   id: number;
   role: 'user' | 'assistant';
   content: string;
   source_metadata?: SourceMetadata; // kept for backward compatibility with older responses
   citations?: SourceMetadata[]; // NEW: one entry per statute actually referenced in the answer
+  // ✅ NEW: Readiness Score Fields
+  readiness_score?: number;
+  readiness_level?: string;
+  readiness_color?: string;
+  readiness_breakdown?: {
+    clarity: number;
+    legal: number;
+    documentation: number;
+    international: number;
+  };
 };
 
 // NEW: shape of the active split-screen PDF panel
@@ -180,6 +192,7 @@ export default function AskSaktiAI() {
       }
       // ===============================================
 
+      // ✅ UPDATED: Extract readiness score data from backend response
       const botMessage: Message = {
         id: Date.now() + 1,
         role: 'assistant',
@@ -189,6 +202,11 @@ export default function AskSaktiAI() {
         citations: data.citations && data.citations.length > 0
           ? data.citations
           : (data.source_metadata ? [data.source_metadata] : undefined),
+        // ✅ NEW: Readiness Score Fields (will be undefined if backend doesn't send them)
+        readiness_score: data.readiness_score,
+        readiness_level: data.readiness_level,
+        readiness_color: data.readiness_color,
+        readiness_breakdown: data.readiness_breakdown,
       };
 
       setMessages((prev) => [...prev, botMessage]);
@@ -520,6 +538,19 @@ export default function AskSaktiAI() {
                                 </button>
                               ))}
                             </div>
+                          )}
+
+                          {/* ✅ NEW: READINESS SCORE CARD - displayed below citations */}
+                          {item.readiness_score !== undefined && (
+                            <ReadinessScoreCard 
+                              response={{
+                                readiness_score: item.readiness_score,
+                                readiness_level: item.readiness_level,
+                                readiness_color: item.readiness_color,
+                                readiness_breakdown: item.readiness_breakdown,
+                              }}
+                              query={messages[messages.findIndex(m => m.id === item.id) - 1]?.content || ''}
+                            />
                           )}
                         </>
                       ) : (
