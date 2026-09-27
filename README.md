@@ -94,16 +94,16 @@ The platform combines deterministic workflows, curated knowledge sources, Retrie
 │ React + TypeScript + Vite + Tailwind CSS                    │
 │                                                             │
 │ Home • Ask SAKTI AI • Know Your Product • Library           │
-│ Knowledge Graph • Community • Help & Support                 │
+│ Knowledge Graph • Community • Help & Support                │
 └─────────────────────────────┬───────────────────────────────┘
                               │
                          REST API / JSON
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  FASTAPI BACKEND                             │
+│                  FASTAPI BACKEND                            │
 │                                                             │
-│ Authentication • Chat • RAG • Document Processing            │
+│ Authentication • Chat • RAG • Document Processing           │
 │ Session Context • API Routing                               │
 └─────────────────────────────┬───────────────────────────────┘
                               │
