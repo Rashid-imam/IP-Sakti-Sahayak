@@ -3,8 +3,15 @@ import re
 import warnings
 from dotenv import load_dotenv
 
+# --- RAM OPTIMIZATION: Force single-threaded ONNX runtime BEFORE any model loads ---
+# This must run before fastembed/onnxruntime is imported, otherwise it spawns
+# one thread per CPU core, which spikes RAM/CPU on constrained free-tier hosts.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("ONNXRUNTIME_NUM_THREADS", "1")
+
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.embeddings import Embeddings
+from fastembed import TextEmbedding
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -26,8 +33,26 @@ warnings.filterwarnings("ignore", category=UserWarning, module="langchain_chroma
 base_dir = os.path.dirname(os.path.abspath(__file__))
 persist_dir = os.path.join(base_dir, "chroma_db")
 
+# --- LIGHTWEIGHT EMBEDDINGS (NO PYTORCH) ---
+# fastembed runs on ONNX Runtime instead of PyTorch/sentence-transformers.
+# Same all-MiniLM-L6-v2 model, but RAM footprint drops from ~400-600MB to
+# ~80-150MB, which is what actually fixes the Render free-tier (512Mi) OOM kill.
+class FastEmbedWrapper(Embeddings):
+    """LangChain-compatible wrapper around fastembed so Chroma can use it as a
+    drop-in replacement for HuggingFaceEmbeddings."""
+
+    def __init__(self, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):
+        self.model = TextEmbedding(model_name=model_name)
+
+    def embed_documents(self, texts: list) -> list:
+        return [vec.tolist() for vec in self.model.embed(texts)]
+
+    def embed_query(self, text: str) -> list:
+        return list(self.model.embed([text]))[0].tolist()
+
+
 # Initialize ChromaDB vector store using all-MiniLM-L6-v2 embeddings
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embeddings = FastEmbedWrapper(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vector_db = Chroma(
     collection_name="ip_sakti_corpus",
     embedding_function=embeddings,
@@ -250,6 +275,99 @@ def clean_and_format_output(text: str) -> str:
 
     return cleaned.strip()
 
+# ==================== NEW FUNCTION: READINESS SCORE CALCULATION ====================
+def calculate_readiness_score(
+    query: str,
+    jurisdiction_scope: str,
+    has_citations: bool = False,
+    confidence_score: float = 0.5
+) -> dict:
+    """
+    Calculate formulation patentability readiness (0-100)
+    
+    Factors:
+    - Clarity (0-25): Query mein complete formulation info hai?
+    - Legal Grounding (0-25): TKDL + Statutory compliance references
+    - Documentation (0-25): Classical vs Proprietary declaration
+    - International Readiness (0-25): Jurisdiction scope clarity
+    """
+    
+    q_lower = query.lower()
+    
+    # 1. CLARITY (0-25)
+    clarity_score = 0
+    if any(w in q_lower for w in ["ashwagandha", "tulsi", "neem", "brahmi", "amalaki", "shatavari", "हरीतकी", "अमलकी", "तुलसी"]):
+        clarity_score += 6.25
+    if any(c.isdigit() for c in query):  # Quantities mentioned
+        clarity_score += 6.25
+    if any(w in q_lower for w in ["baldness", "alopecia", "fever", "diabetes", "cough", "pain", "गंजापन", "खांसी", "बुखार"]):
+        clarity_score += 6.25
+    if any(w in q_lower for w in ["charaka", "sushruta", "sahasrayogam", "bhavaprakash", "चरक", "सुश्रुत"]):
+        clarity_score += 6.25
+    clarity_score = min(25, clarity_score)
+    
+    # 2. LEGAL GROUNDING (0-25)
+    legal_score = 0
+    if any(w in q_lower for w in ["tkdl", "traditional knowledge", "पारंपरिक ज्ञान"]):
+        legal_score += 6.25
+    if any(w in q_lower for w in ["section 3(p)", "3(p)", "non-patentable"]):
+        legal_score += 6.25
+    if any(w in q_lower for w in ["biodiversity", "nba", "biological diversity", "जैव विविधता"]):
+        legal_score += 6.25
+    if any(w in q_lower for w in ["classical", "proprietary", "patent", "शास्त्रीय", "स्वामित्व"]):
+        legal_score += 6.25
+    legal_score = min(25, legal_score)
+    
+    # 3. DOCUMENTATION (0-25)
+    docs_score = 0
+    if any(w in q_lower for w in ["classical", "proprietary", "novel recipe", "नया सूत्र"]):
+        docs_score += 6.25
+    if any(w in q_lower for w in ["rule 128", "cosmetic", "therapeutic", "drug", "औषधि", "प्रसाधन"]):
+        docs_score += 6.25
+    if any(w in q_lower for w in ["ingredients", "ratio", "composition", "formula", "सामग्री", "अनुपात"]):
+        docs_score += 6.25
+    if any(w in q_lower for w in ["source", "origin", "location", "region", "geographical", "स्रोत", "मूल"]):
+        docs_score += 6.25
+    docs_score = min(25, docs_score)
+    
+    # 4. INTERNATIONAL READINESS (0-25)
+    intl_score = 0
+    if jurisdiction_scope in ["BOTH", "International"]:
+        intl_score += 6.25
+    if has_citations:
+        intl_score += 6.25
+    if any(w in q_lower for w in ["india", "himalaya", "region", "भारत", "क्षेत्र", "geographical"]):
+        intl_score += 6.25
+    if any(w in q_lower for w in ["pic", "mat", "nagoya", "benefit sharing", "पूर्व सहमति"]):
+        intl_score += 6.25
+    intl_score = min(25, intl_score)
+    
+    # Calculate final score
+    raw_total = clarity_score + legal_score + docs_score + intl_score
+    final_score = min(100, raw_total + (confidence_score * 15))
+    
+    # Determine readiness level
+    if final_score >= 75:
+        readiness_level = "🟢 Patent-Ready"
+        color_code = "high"
+    elif final_score >= 50:
+        readiness_level = "🟡 Clarify Needed"
+        color_code = "medium"
+    else:
+        readiness_level = "🔴 More Info Needed"
+        color_code = "low"
+    
+    return {
+        "score": round(final_score, 0),
+        "level": readiness_level,
+        "color": color_code,
+        "clarity": round(clarity_score, 0),
+        "legal": round(legal_score, 0),
+        "documentation": round(docs_score, 0),
+        "international": round(intl_score, 0)
+    }
+# ============================== END READINESS SCORE FUNCTION ==============================
+
 def normalize_jurisdiction(jurisdiction: str) -> str:
     if "International" in jurisdiction:
         return "International"
@@ -442,7 +560,7 @@ def query_ip_assistant(
     query: str,
     product_category: str = "Drug",
     jurisdiction: str = "India",
-    language: str = "English",           # <-- Added language parameter to match FastAPI request
+    language: str = "English",
     response_language: str = "English",
     chat_history: list = None,
     has_paid_access: bool = False
@@ -491,14 +609,17 @@ def query_ip_assistant(
             "confidence_score": 1.00,
             "escalation_required": False,
             "grounding_verified": True,
-            # FIX: None instead of {} -- an empty dict is truthy in JS and would
-            # make the frontend render a broken citation badge on every casual reply.
             "source_metadata": None,
             "citations": [],
             "data": {},
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (None for casual chat)
+            "readiness_score": None,
+            "readiness_level": None,
+            "readiness_color": None,
+            "readiness_breakdown": None
         }
 
     # Branch 2: Clinical safety guardrail
@@ -513,13 +634,17 @@ def query_ip_assistant(
             "confidence_score": 0.00,
             "escalation_required": True,
             "grounding_verified": None,
-            # FIX: None instead of {}
             "source_metadata": None,
             "citations": [],
             "data": {},
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (None for medical)
+            "readiness_score": None,
+            "readiness_level": None,
+            "readiness_color": None,
+            "readiness_breakdown": None
         }
 
     # Branch 3: Out-of-domain guardrail
@@ -534,13 +659,17 @@ def query_ip_assistant(
             "confidence_score": 0.00,
             "escalation_required": True,
             "grounding_verified": None,
-            # FIX: None instead of {}
             "source_metadata": None,
             "citations": [],
             "data": {},
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (None for out-of-domain)
+            "readiness_score": None,
+            "readiness_level": None,
+            "readiness_color": None,
+            "readiness_breakdown": None
         }
 
     # Branch 4: Interactive classification triage for unclassified formulations
@@ -552,6 +681,15 @@ def query_ip_assistant(
 
     if "ACTION: CLARIFY" in router_output or is_vague_product_query:
         clarify_text, clarify_data = build_clarification_response(language or response_language)
+        
+        # Calculate readiness for clarification case
+        readiness = calculate_readiness_score(
+            query=query,
+            jurisdiction_scope="India",
+            has_citations=False,
+            confidence_score=0.4
+        )
+        
         return {
             "status": "SUCCESS",
             "intent": "CLASSIFICATION_TRIAGE",
@@ -562,13 +700,22 @@ def query_ip_assistant(
             "confidence_score": 0.92,
             "escalation_required": False,
             "grounding_verified": True,
-            # FIX: None instead of {}
             "source_metadata": None,
             "citations": [],
             "data": clarify_data,
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (for clarification case)
+            "readiness_score": readiness["score"],
+            "readiness_level": readiness["level"],
+            "readiness_color": readiness["color"],
+            "readiness_breakdown": {
+                "clarity": readiness["clarity"],
+                "legal": readiness["legal"],
+                "documentation": readiness["documentation"],
+                "international": readiness["international"]
+            }
         }
 
     # Branch 5: Statutory legal retrieval and synthesis
@@ -603,16 +750,20 @@ def query_ip_assistant(
             "confidence_score": 0.0,
             "escalation_required": True,
             "grounding_verified": None,
-            # FIX: None instead of {}
             "source_metadata": None,
             "citations": [],
             "data": {},
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (None for insufficient corpus)
+            "readiness_score": None,
+            "readiness_level": None,
+            "readiness_color": None,
+            "readiness_breakdown": None
         }
     
-    # --- NAYA LOGIC: PAID DATABASE CHECK ---
+    # --- PAID DATABASE CHECK ---
     context_text = "\n\n".join([doc.page_content for doc, _ in results])
     if "derwent" in context_text.lower() or "clarivate" in context_text.lower():
         if not has_paid_access:
@@ -626,15 +777,19 @@ def query_ip_assistant(
                 "confidence_score": 1.0,
                 "escalation_required": True,
                 "grounding_verified": None,
-                # FIX: None instead of {}
                 "source_metadata": None,
                 "citations": [],
-                "requires_paid_access": True,  # <-- FRONTEND ISKO DEKH KAR PERMISSION MANGEYGA
+                "requires_paid_access": True,
                 "external_links": [],
                 "data": {},
-                "sources": []
+                "sources": [],
+                # ✅ READINESS SCORE (None for paid access)
+                "readiness_score": None,
+                "readiness_level": None,
+                "readiness_color": None,
+                "readiness_breakdown": None
             }
-    # ---------------------------------------
+    # -----------------------------------------------
 
     top_doc, raw_score = results[0]
 
@@ -650,13 +805,17 @@ def query_ip_assistant(
             "confidence_score": 0.00,
             "escalation_required": True,
             "grounding_verified": None,
-            # FIX: None instead of {}
             "source_metadata": None,
             "citations": [],
             "data": {},
             "requires_paid_access": False,
             "external_links": [],
-            "sources": []
+            "sources": [],
+            # ✅ READINESS SCORE (None for low relevance)
+            "readiness_score": None,
+            "readiness_level": None,
+            "readiness_color": None,
+            "readiness_breakdown": None
         }
 
     # Extract source document page metadata for PDF viewer deep linking
@@ -668,14 +827,7 @@ def query_ip_assistant(
     except (ValueError, TypeError):
         page_display = 1
 
-    # FIX: the answer often synthesises MULTIPLE statutes (Patents Act, BDA,
-    # WIPO GRATK, Nagoya Protocol) but earlier code only captured a citation
-    # for the single top-scoring chunk (top_doc). Build a citation for EVERY
-    # retrieved chunk instead, so the frontend can show one badge+button per
-    # statute actually referenced in the answer. The corpus also mixes real
-    # statute PDFs with supporting JSON reference datasets (biopiracy_cases_
-    # clean.json, plant_name_clean.json, etc.) -- those are skipped here since
-    # there is nothing sensible to open in a PDF viewer for them.
+    # Build citations for EVERY retrieved chunk
     citations = []
     seen_citation_keys = set()
     for doc, _score in results:
@@ -684,7 +836,7 @@ def query_ip_assistant(
         c_file_name = os.path.basename(c_source_path) if c_source_path else f"{doc.metadata.get('act_name', 'Statute')}.pdf"
 
         if not c_file_name.lower().endswith(".pdf"):
-            continue  # skip JSON reference datasets -- only cite real PDFs
+            continue  # skip JSON reference datasets
 
         try:
             c_page_display = int(c_page_num) + 1
@@ -704,8 +856,6 @@ def query_ip_assistant(
             "section": doc.metadata.get("section", "")
         })
 
-    # Kept for backward compatibility with any code still reading a single
-    # "source_metadata" -- points at the first real PDF citation, if any.
     source_info = citations[0] if citations else None
 
     # Tag and assemble context chunks by jurisdiction
@@ -787,13 +937,21 @@ def query_ip_assistant(
     else:
         primary_cite = f"{top_doc.metadata.get('act_name', 'Corpus')} — {top_doc.metadata.get('section', 'Statutory Reference')}"
         
-    # --- NAYA LOGIC: EXTRACT LINKS ---
+    # --- EXTRACT LINKS ---
     external_links = []
     if "ipindia" in final_answer.lower() or "patent" in final_answer.lower():
         external_links.append("https://ipindia.gov.in")
     if "biodiversity" in final_answer.lower() or "nba" in final_answer.lower():
         external_links.append("https://nbaindia.org/")
     # ---------------------------------
+
+    # ✅ CALCULATE READINESS SCORE FOR STATUTORY DIAGNOSTIC
+    readiness = calculate_readiness_score(
+        query=query,
+        jurisdiction_scope=jurisdiction_scope,
+        has_citations=len(citations) > 0,
+        confidence_score=normalized_conf
+    )
 
     return {
         "status": "SUCCESS",
@@ -805,19 +963,24 @@ def query_ip_assistant(
         "confidence_score": normalized_conf,
         "escalation_required": False,
         "grounding_verified": True,
-        # Real citation exists here -- this is the only branch that should carry it.
         "source_metadata": source_info,
         "requires_paid_access": False,
         "external_links": external_links,
-        # FIX: fall back to the plain file_name (still useful as a text citation)
-        # when source_info is None because the top match wasn't a PDF.
         "sources": [source_info["file_name"]] if source_info else [file_name],
-        # NEW: full list of citations, one per statute actually referenced --
-        # this is what lets the frontend show multiple "Open Statute PDF" buttons.
         "citations": citations,
         "data": {
             "jurisdiction_scope": jurisdiction_scope,
             "raw_context_count": len(results),
             "source_metadata": source_info
+        },
+        # ✅ READINESS SCORE (for statutory diagnostic)
+        "readiness_score": readiness["score"],
+        "readiness_level": readiness["level"],
+        "readiness_color": readiness["color"],
+        "readiness_breakdown": {
+            "clarity": readiness["clarity"],
+            "legal": readiness["legal"],
+            "documentation": readiness["documentation"],
+            "international": readiness["international"]
         }
     }

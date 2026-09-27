@@ -51,7 +51,7 @@ export default function ChatBot() {
 
     try {
       // Connect to your FastAPI backend endpoint (adjust port/route as per your main.py)
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://internal-data-processor.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
