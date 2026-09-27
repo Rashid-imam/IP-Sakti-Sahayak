@@ -169,7 +169,7 @@ export default function AskSaktiAI() {
 
     try {
       // API call to backend
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://internal-data-processor.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -281,7 +281,7 @@ export default function AskSaktiAI() {
     setIsGeneratingReport(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/generate-report", {
+      const response = await fetch("https://internal-data-processor.onrender.com/api/generate-report", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -295,7 +295,7 @@ export default function AskSaktiAI() {
 
       if (result.status === "SUCCESS" && result.download_url) {
         // Automatically start download using the backend URL
-        window.location.href = `http://localhost:8000${result.download_url}`;
+        window.location.href = `https://internal-data-processor.onrender.com${result.download_url}`;
       } else {
         alert("Failed to generate report.");
       }
@@ -773,10 +773,10 @@ export default function AskSaktiAI() {
                 key={`${activePdf.file_name}-${activePdf.page_number}`}
                 // NOTE: absolute backend URL (not a relative "/docs/..." path) because the
                 // React app runs on localhost:5173 while FastAPI serves the PDFs from
-                // localhost:8000 -- a relative path would resolve against the wrong origin.
+                // internal-data-processor.onrender.com -- a relative path would resolve against the wrong origin.
                 // encodeURIComponent() handles file names with spaces/commas
                 // (e.g. "THE BIOLOGICAL DIVERSITY ACT, 2002 (as amended...).pdf").
-                src={`http://localhost:8000/statute-docs/${encodeURIComponent(activePdf.file_name)}#page=${activePdf.page_number}`}
+                src={`https://internal-data-processor.onrender.com/statute-docs/${encodeURIComponent(activePdf.file_name)}#page=${activePdf.page_number}`}
                 title={`${activePdf.file_name} viewer`}
                 className="h-full w-full border-0"
               />
