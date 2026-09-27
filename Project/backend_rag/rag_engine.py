@@ -3,8 +3,15 @@ import re
 import warnings
 from dotenv import load_dotenv
 
+# --- RAM OPTIMIZATION: Force single-threaded ONNX runtime BEFORE any model loads ---
+# This must run before fastembed/onnxruntime is imported, otherwise it spawns
+# one thread per CPU core, which spikes RAM/CPU on constrained free-tier hosts.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("ONNXRUNTIME_NUM_THREADS", "1")
+
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.embeddings import Embeddings
+from fastembed import TextEmbedding
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -26,8 +33,26 @@ warnings.filterwarnings("ignore", category=UserWarning, module="langchain_chroma
 base_dir = os.path.dirname(os.path.abspath(__file__))
 persist_dir = os.path.join(base_dir, "chroma_db")
 
+# --- LIGHTWEIGHT EMBEDDINGS (NO PYTORCH) ---
+# fastembed runs on ONNX Runtime instead of PyTorch/sentence-transformers.
+# Same all-MiniLM-L6-v2 model, but RAM footprint drops from ~400-600MB to
+# ~80-150MB, which is what actually fixes the Render free-tier (512Mi) OOM kill.
+class FastEmbedWrapper(Embeddings):
+    """LangChain-compatible wrapper around fastembed so Chroma can use it as a
+    drop-in replacement for HuggingFaceEmbeddings."""
+
+    def __init__(self, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):
+        self.model = TextEmbedding(model_name=model_name)
+
+    def embed_documents(self, texts: list) -> list:
+        return [vec.tolist() for vec in self.model.embed(texts)]
+
+    def embed_query(self, text: str) -> list:
+        return list(self.model.embed([text]))[0].tolist()
+
+
 # Initialize ChromaDB vector store using all-MiniLM-L6-v2 embeddings
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embeddings = FastEmbedWrapper(model_name="sentence-transformers/all-MiniLM-L6-v2")
 vector_db = Chroma(
     collection_name="ip_sakti_corpus",
     embedding_function=embeddings,

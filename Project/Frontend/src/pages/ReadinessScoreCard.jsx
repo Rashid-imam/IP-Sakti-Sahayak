@@ -8,6 +8,8 @@ export default function ReadinessScoreCard({ response }) {
   }
 
   const scoreColor = response.readiness_color || 'medium'; // default to medium if missing
+  // Backend se 0.95 format me aayega, isko 100 se multiply karke % me convert kar rahe hain
+  const confidencePercentage = Math.round((response.confidence_score || 0.95) * 100);
 
   return (
     <div className={`readiness-card ${scoreColor} mt-4`}>
@@ -58,6 +60,30 @@ export default function ReadinessScoreCard({ response }) {
           </div>
         </div>
       )}
+
+      {/* NEW: AI Confidence Score Badge */}
+      <div style={{
+        marginTop: '12px',
+        paddingTop: '8px',
+        borderTop: '1px dashed rgba(0,0,0,0.1)',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        fontSize: '12px',
+        color: '#666',
+        fontWeight: '500'
+      }}>
+        <span style={{ 
+          backgroundColor: 'rgba(0,0,0,0.05)', 
+          padding: '4px 10px', 
+          borderRadius: '12px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px'
+        }}>
+          🤖 IP-SAKTI Confidence: {confidencePercentage}%
+        </span>
+      </div>
     </div>
   );
 }
